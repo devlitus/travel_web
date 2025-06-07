@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colores principales extraídos de Figma */
+  --color-primary: #121417;
+  --color-secondary: #ADD1EB;
+  --color-background: #FFFFFF;
+  --color-gray-dark: #667882;
+  --color-gray-light: #DEE0E3;
+  --color-gray-lighter: #E5E8EB;
+  --color-gray-lightest: #F2F2F5;
+
+  /* Tipografía principal */
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Tamaños de fuente frecuentes */
+  --text-xs: 14px;
+  --text-sm: 16px;
+  --text-base: 18px;
+  --text-lg: 22px;
+  --text-xl: 36px;
+  --text-2xl: 48px;
+}
