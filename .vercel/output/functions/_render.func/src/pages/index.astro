@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section>
+      <form class="flex justify-center items-center my-10">
+        <input
+          type="search"
+          name="destination"
+          placeholder="Busca tu próximo destino..."
+          class="border border-gray-300 rounded-l-lg py-2 px-4 w-1/2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r-lg"
+        >
+          Buscar
+        </button>
+      </form>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const searchInput = document.querySelector(
+    "input[type='search']"
+  ) as HTMLInputElement;
+  const form = document.querySelector("form") as HTMLFormElement;
+
+  if (form && searchInput) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const query = searchInput.value.trim();
+      console.log(`Valor del input: "${query}"`);
+
+      try {
+        const response = await fetch(`/api/search`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ query }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Datos recibidos:", data);
+      } catch (error) {
+        console.error("Error al buscar el destino:", error);
+      }
+    });
+  } else {
+    console.error("No se pudieron encontrar los elementos del formulario");
+  }
+</script>

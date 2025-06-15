@@ -1,0 +1,7 @@
+---
+import './button.css';
+const { type, title } = Astro.props;
+---
+<button type={type} title={title} >
+  <slot />
+</button>
