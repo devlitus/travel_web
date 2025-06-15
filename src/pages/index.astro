@@ -4,15 +4,74 @@ import Hero from "../components/Hero/Hero.astro";
 import PopularDestination from "../components/PopularDestination/PopularDestination.astro";
 import Explorer from "../components/Explorer/Explorer.astro";
 import Contact from "../components/Contact/Contact.astro";
+import heroBg from '@assets/images/hero-bg.png';
+import '@components/Hero/hero.css';
+
 ---
 
 <Layout>
   <main>
-    <Hero />
-    <PopularDestination />
+    <section class="hero-section">
+      <div class="hero-bg">
+        <img src={heroBg.src} alt="Viaje" class="hero-image" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>Descubre el mundo con Viajes Para Ti</h1>
+          <p>Encuentra tu próxima aventura con nuestras ofertas exclusivas y destinos impresionantes.</p>
+          <form class="search-form">
+            <input
+              type="text"
+              placeholder='Busca tu destino'
+            />
+            <button type="submit" class="search-form-button">
+              Buscar
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="popular-destinations">
+      <div class="popular-header">
+        <h2>Destinos populares</h2>        
+      </div>
+      <div class="destinations-grid" id="destinations">
+      </div>
+    </section>
     <Explorer />
     <Contact />
   </main>
 
 </Layout>
 
+<script>
+
+  const searchForm = document.querySelector('.search-form') as HTMLFormElement;
+  const searchInput = document.querySelector('.search-form input') as HTMLInputElement;
+  const destinations = document.querySelector('#destinations') as HTMLDivElement;
+
+  searchForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('/api/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: searchInput.value }),
+      });
+      if (!response.ok) throw new Error('Error en la búsqueda');
+      const data = await response.json();
+
+      destinations.innerHTML = data.destinations.map((destination: any) => `
+        <div class="destination-card">
+          <h3>${destination.name}</h3>
+          <p>${destination.description}</p>
+          <img src="${destination.image}" alt="${destination.name}" />
+        </div>
+      `).join('');
+    } catch (err) {
+      console.error(err);
+    }
+   
+  });
+
+</script>

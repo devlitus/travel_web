@@ -37,12 +37,13 @@ export const POST: APIRoute = async ({ request }) => {
                 IMPORTANTE: Tu respuesta debe ser ÚNICAMENTE el JSON válido que se muestra a continuación:
 
                 {
-                  "destinos": [
+                  "destinations": [
                     {
-                      "nombre": "Nombre del destino",
-                      "pais": "País", 
-                      "descripcion": "Descripción breve del destino",
-                      "caracteristica_especial": "Lo que lo hace único"
+                      "name": "Nombre del destino",
+                      "country": "País", 
+                      "description": "Descripción breve del destino",
+                      "special_feature": "Lo que lo hace único",
+                      "image": "URL de la imagen del destino"
                     }
                   ]
                 }
@@ -69,9 +70,7 @@ export const POST: APIRoute = async ({ request }) => {
     
     try {
       // Intentar parsear el JSON
-      const parsedData = transformMarkdownToJson(cleanedText);
-      console.log('JSON parseado exitosamente:', parsedData);
-      
+      const parsedData = transformMarkdownToJson(cleanedText);   
       return new Response(
         JSON.stringify(parsedData),
         { status: 200, headers: { 'Content-Type': 'application/json' } }

@@ -1,0 +1,65 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Reglas y Buenas Prácticas del Proyecto
+
+1. Estructura de Carpetas y Archivos
+- Organiza los componentes por funcionalidad, no por tipo.
+- Usa nombres descriptivos y en inglés para archivos y carpetas.
+
+2. Estilos
+- Centraliza los estilos globales en `src/styles/global.css`.
+- Usa clases CSS claras y específicas.
+- Mantén consistencia en variables CSS para colores, fuentes y bordes.
+
+3. Componentes
+- Los componentes deben ser reutilizables e independientes.
+- Cada componente en su propia carpeta si tiene archivos auxiliares.
+- Usa props para pasar datos y evita variables globales innecesarias.
+
+4. Código y Sintaxis
+- Usa siempre TypeScript para `.tsx` y `.ts`.
+- Declara los tipos de datos de las props y estados.
+- Prefiere funciones flecha para componentes y callbacks.
+- Mantén el código formateado y usa ESLint y Prettier.
+
+5. Accesibilidad y Semántica
+- Usa etiquetas HTML semánticas.
+- Añade atributos `alt` descriptivos en imágenes.
+- Asegura formularios accesibles y con etiquetas asociadas.
+
+6. Buenas Prácticas de Git
+- Realiza commits pequeños y descriptivos.
+- Usa ramas para nuevas funcionalidades o fixes.
+- Escribe mensajes de commit claros y en presente.
+
+7. API y Datos
+- Valida y tipa las respuestas de la API.
+- Maneja errores de red y muestra mensajes claros al usuario.
+- No expongas datos sensibles en el frontend.
+
+8. Desempeño
+- Optimiza imágenes antes de subirlas.
+- Usa lazy loading para imágenes y componentes pesados.
+- Minimiza dependencias externas.
+
+9. Documentación
+- Documenta componentes complejos y funciones utilitarias.
+- Mantén un README actualizado con instrucciones de instalación y uso.
+
+10. Revisión y Testing
+- Haz code review antes de fusionar ramas.
+- Escribe tests para componentes y lógica importante si el proyecto lo requiere.
+
+---
+
+11. Uso de Cursor (AI Pair Programmer)
+- Utiliza Cursor para sugerir mejoras, refactorizaciones y resolver dudas técnicas.
+- Antes de aceptar cambios sugeridos por Cursor, revisa el código y asegúrate de que cumple con las reglas anteriores.
+- Si Cursor genera código, verifica que siga la estructura, estilos y convenciones del proyecto.
+- Usa Cursor para documentar funciones, componentes y procesos complejos.
+- Si tienes dudas sobre una sugerencia de Cursor, consulta con el equipo antes de fusionar.
+
+- Mantén la comunicación clara y específica al interactuar con Cursor para obtener mejores resultados. 

@@ -1,4 +1,14 @@
+---
+const { data } = Astro.props;
+---
+
 <section class="popular-destinations">
   <h2>Destinos populares</h2>
-  <!-- Aquí irá el grid o lista de destinos -->
+  {data.map((destination: any) => (
+    <div class="destination-card">
+      <h3>{destination.name}</h3>
+      <p>{destination.description}</p>
+      <img src={destination.image} alt={destination.name} />
+    </div>
+  ))}
 </section> 

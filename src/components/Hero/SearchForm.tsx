@@ -5,9 +5,9 @@ export function SearchForm({ placeholder = 'Busca tu destino' }) {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [result, setResult] = useState(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -21,16 +21,15 @@ export function SearchForm({ placeholder = 'Busca tu destino' }) {
       if (!response.ok) throw new Error('Error en la búsqueda');
       const data = await response.json();
       setResult(data);
-      console.log('data', data)
     } catch (err) {
-      setError(err.message);
+      setError(err as string);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <form className="search-form" onSubmit={handleSubmit} style={{ display: 'flex', gap: '0.5rem' }}>
+    <form className="search-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder={placeholder}

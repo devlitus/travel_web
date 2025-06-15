@@ -1,7 +1,7 @@
 ---
 import heroBg from '@assets/images/hero-bg.png';
 import './hero.css';
-import { SearchForm } from './SearchForm.jsx';
+import { SearchForm } from './SearchForm.tsx';
 ---
 
 <section class="hero-section">
@@ -11,6 +11,7 @@ import { SearchForm } from './SearchForm.jsx';
     <div class="hero-content">
       <h1>Descubre el mundo con Viajes Para Ti</h1>
       <p>Encuentra tu próxima aventura con nuestras ofertas exclusivas y destinos impresionantes.</p>
+
       <SearchForm client:load placeholder="Busca  tu destino" />
     </div>
   </div>
