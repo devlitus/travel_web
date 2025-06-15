@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Evitar subir configuraciones locales de Figma
+.vscode/mcp.json
