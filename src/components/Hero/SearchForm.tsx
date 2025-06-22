@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Spinner } from './Spinner';
 
-export function SearchForm({ placeholder = 'Busca tu destino' }) {
+export function SearchForm({ placeholder }: { placeholder: string }) {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [result, setResult] = useState(null);

@@ -1,8 +1,7 @@
 ---
 import '../styles/global.css';
-import Header from '@components/Header/Header.astro';
 import favicon from '@assets/favicon.svg';
-import Footer from '@components/Footer/Footer.astro';
+import Header from '@components/Header/Header.astro';
 ---
 
 <!doctype html>
@@ -10,24 +9,15 @@ import Footer from '@components/Footer/Footer.astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="icon" type="image/svg+xml" href={favicon.src} /> -->
-    <title>Viajes Para Ti - Descubre el mundo</title>
+    <link rel="icon" type="image/svg+xml" href={favicon.src} />
+    <title>TravelGen - Generador de Viajes Personalizado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body class="bg-background-color font-family">
+  <body>
     <Header />
-    <div class="app-container">
+    <main>
       <slot />
-    </div>
-    <Footer />
+    </main>
   </body>
 </html>
-
-<style>
-.app-container {
-  max-width: 1787px;
-  margin: 0 auto;
-  width: 100%;
-}
-</style>
